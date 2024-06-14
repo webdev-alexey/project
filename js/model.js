@@ -8,8 +8,16 @@ let data = {
   },
 };
 
+let results = {
+  rate: data.selectedProgram,
+};
+
 function getData() {
   return { ...data };
+}
+
+function getResults() {
+  return { ...results };
 }
 
 function setData(newData) {
@@ -17,5 +25,9 @@ function setData(newData) {
     ...data,
     ...newData,
   };
+
+  results = {
+    rate: data.selectedProgram,
+  };
 }
-export { getData, setData };
+export { getData, getResults, setData };
