@@ -24,6 +24,11 @@ function getResults() {
 }
 
 function setData(newData) {
+  if (newData.onUpdate === "inputCost") {
+    if (newData.cost < data.minPrice) newData.cost = data.minPrice;
+    if (newData.cost > data.maxPrice) newData.cost = data.maxPrice;
+  }
+
   data = {
     ...data,
     ...newData,
