@@ -54,6 +54,8 @@ function init(getData) {
       onUpdate: "inputCost",
     });
   });
+
+  return cleaveInput;
 }
 
 export default init;
