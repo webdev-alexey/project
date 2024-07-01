@@ -54,6 +54,10 @@ function setData(newData) {
     }
   }
 
+  if (newData.onUpdate === "paymentSlider") {
+    newData.paymentPercents = newData.paymentPercents / 100;
+  }
+
   data = {
     ...data,
     ...newData,
