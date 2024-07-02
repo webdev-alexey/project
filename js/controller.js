@@ -35,6 +35,7 @@ window.onload = function () {
     if (data.onUpdate === "radioProgram") {
       updateMinPercents(data);
 
+      // Изменение первоначального взноса
       sliderPayment.noUiSlider.updateOptions({
         range: {
           min: data.minPaymentPercents * 100,
