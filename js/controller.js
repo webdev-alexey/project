@@ -35,7 +35,6 @@ window.onload = function () {
     if (data.onUpdate === "radioProgram") {
       updateMinPercents(data);
 
-      // Изменение первоначального взноса
       sliderPayment.noUiSlider.updateOptions({
         range: {
           min: data.minPaymentPercents * 100,
@@ -54,6 +53,10 @@ window.onload = function () {
 
     if (data.onUpdate !== "inputPayment") {
       cleavePayment.setRawValue(data.payment);
+    }
+
+    if (data.onUpdate !== "paymentSlider") {
+      sliderPayment.noUiSlider.set(data.paymentPercents * 100);
     }
   }
 };
