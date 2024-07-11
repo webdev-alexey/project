@@ -10,6 +10,7 @@ import paymentInput from "./view/paymentInput.js";
 import paymentRange from "./view/paymentRange.js";
 
 import timeInput from "./view/timeInput.js";
+import timeRange from "./view/timeRange.js";
 
 window.onload = function () {
   const getData = Model.getData;
@@ -23,6 +24,7 @@ window.onload = function () {
   const sliderPayment = paymentRange(getData);
 
   const cleaveTime = timeInput(getData);
+  const sliderTime = timeRange(getData);
 
   document.addEventListener("updateForm", (e) => {
     Model.setData(e.detail);
@@ -61,6 +63,14 @@ window.onload = function () {
 
     if (data.onUpdate !== "paymentSlider") {
       sliderPayment.noUiSlider.set(data.paymentPercents * 100);
+    }
+
+    if (data.onUpdate !== "inputTime") {
+      cleaveTime.setRawValue(data.time);
+    }
+
+    if (data.onUpdate !== "timeSlider") {
+      sliderTime.noUiSlider.set(data.time);
     }
   }
 };
